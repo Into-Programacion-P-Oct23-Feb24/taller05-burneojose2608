@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class CalculoCostoPedido {
+    public static void main(String[] args) {
+        // Solicitar entrada de usuario
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Ingrese la descripción del artículo: ");
+        String descripcion = scanner.nextLine();
+        
+        System.out.print("Ingrese la cantidad requerida: ");
+        int cantidad = scanner.nextInt();
+        
+        System.out.print("Ingrese el precio unitario: ");
+        double precioUnitario = scanner.nextDouble();
+        
+        // Calcular el costo del pedido
+        double costoPedido = calcularCostoPedido(cantidad, precioUnitario);
+        
+        // Mostrar el resultado
+        System.out.println("\nResumen del Pedido:");
+        System.out.println("Descripción del artículo: " + descripcion);
+        System.out.println("Cantidad requerida: " + cantidad);
+        System.out.println("Precio unitario: $" + precioUnitario);
+        System.out.printf("Costo del pedido: $%.2f%n", costoPedido);
+        
+        // Cerrar el scanner
+        scanner.close();
+    }
+    
+    public static double calcularCostoPedido(int cantidad, double precioUnitario) {
+        // Aplicar descuento del 15% si la cantidad pedida excede de 50 unidades
+        if (cantidad > 50) {
+            double descuento = 0.15 * (cantidad * precioUnitario);
+            return cantidad * precioUnitario - descuento;
+        } else {
+            return cantidad * precioUnitario;
+        }
+    }
+}
