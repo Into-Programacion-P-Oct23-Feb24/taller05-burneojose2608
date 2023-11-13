@@ -17,38 +17,25 @@ public class Problema4 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-         
-       
         Scanner scanner = new Scanner(System.in);
-        
         System.out.print("Ingrese el numero de dias de hospedaje: ");
         int numDias = scanner.nextInt();
-        
         System.out.print("Ingrese el precio diario de la habitacion: ");
         double precioDiario = scanner.nextDouble();
-        
-        
         double subtotal = calcularSubtotal(numDias, precioDiario);
         double descuento = calcularDescuento(numDias, subtotal);
         double totalPagar = subtotal - descuento;
-        
-        
         System.out.println("\nResumen del Hospedaje:");
         System.out.println("Numero de dias: " + numDias);
         System.out.println("Precio diario de la habitacion: " + precioDiario);
         System.out.printf("Subtotal por pagar: %.2f%n", subtotal);
         System.out.printf("Descuento aplicado: %.2f%n", descuento);
         System.out.printf("Total por pagar: %.2f%n", totalPagar);
-        
-       
     }
-    
     public static double calcularSubtotal(int numDias, double precioDiario) {
         return numDias * precioDiario;
     }
-    
     public static double calcularDescuento(int numDias, double subtotal) {
-        
         if (numDias > 15) {
             return 0.20 * subtotal;  
         } else if (numDias > 10) {
